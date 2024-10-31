@@ -4,6 +4,33 @@
     <title>This is the title of the webpage!</title>
   </head>
   <body>
-    <img src="./content/index.jpeg" alt="Index">
+      <a onClick="playAudio()">
+        <img src="./content/index.jpeg" alt="Index">
+      </a>
   </body>
+  <script>
+      const audio = new Audio("./content/audio.MOV");
+      function playAudio(){
+          audio.currentTime = 0;
+          audio.play();
+      }
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          const keyName = event.code;
+      
+          if (keyName === "Space") {
+            if (!audio.paused)
+            {
+                audio.pause()
+            }
+            else{
+                audio.play()
+            }
+          }
+        },
+        false,
+      );
+  </script>
 </html>
